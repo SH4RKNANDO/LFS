@@ -109,7 +109,7 @@ function linux_headers {
 
 function cmp_glibc {
 
-  uncompress "linux-5.8.1.tar.xz" "linux-5.8.1"
+  uncompress "glibc-2.32.tar.xz" "glibc-2.32"
 
   case $(uname -m) in
     i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
@@ -141,7 +141,7 @@ function cmp_glibc {
     rm -v dummy.c a.out
     $LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tools/mkheaders
 
-    cleanning "linux-5.8.1"
+    cleanning "glibc-2.32"
 }
 
 # ///////////////////////////////////////// < Section MAIN >///////////////////////////////////////////////////

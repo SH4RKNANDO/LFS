@@ -9,10 +9,10 @@ export LFS=/mnt/lfs
 # ///////////////////////////////////////// < Section User >///////////////////////////////////////////////////
 
 function dependency {
-  echo -e "Correct the Bash interpreter\n"
+  echo -e "\nCorrect the Bash interpreter\n"
   ln -s /bin/bash /bin/sh
 
-  echo -e "Install dependency\n"
+  echo -e "\nInstall dependency\n"
   sudo apt-get --yes install build-essentials
   sudo apt-get --yes install bison
   sudo apt-get --yes install texlive
@@ -21,10 +21,10 @@ function dependency {
   sudo apt-get --yes install make
   sudo apt-get --yes install python python-pip python3 python3-pip
 
-  echo -e "Set permissions to scripts\n"
+  echo -e "\nSet permissions to scripts\n"
   sudo chmod -Rv 755 scripts/*
 
-  echo -e "Mount the Root Partition\n"
+  echo -e "\nMount the Root Partition\n"
   sudo rm -rfv $LFS/*
   sudo umount -Rv $ROOT_DISK
   yes 'y' | sudo mkfs.ext4 $ROOT_DISK
@@ -33,7 +33,7 @@ function dependency {
 
 function check_dependency {
   clear
-  echo -e "Show correct dependency\n"
+  echo -e "\nShow correct dependency\n"
   bash tools/version-check.sh
 }
 
@@ -41,7 +41,7 @@ function check_dependency {
 # ///////////////////////////////////////// < Section User >///////////////////////////////////////////////////
 
 function set_user {
-  echo -e "Create User LFS...\n"
+  echo -e "\nCreate User LFS...\n"
   groupadd lfs
   useradd -s /bin/bash -g lfs -m -k /dev/null lfs
   yes "$LFS_PASSWORD" | passwd lfs
@@ -54,7 +54,7 @@ function set_user {
 # ///////////////////////////////////////// < Section Folders >///////////////////////////////////////////////////
 
 function create_folder {
-  echo -e "Prepare Folder...\n"
+  echo -e "\nPrepare Folder...\n"
   mkdir -pv $LFS/{sources,tools,bin,etc,lib,sbin,usr,var}
 
   case $(uname -m) in
@@ -74,7 +74,7 @@ function set_perm_folder {
 }
 
 function download {
-  echo -e "Download LFS Packages...\n"
+  echo -e "\nDownload LFS Packages...\n"
   wget --input-file=tools/wget-list --continue --directory-prefix=$LFS/sources
 }
 

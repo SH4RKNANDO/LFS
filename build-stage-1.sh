@@ -35,6 +35,11 @@ function cmp_binutils_pass1 {
   cleanning "binutils-2.35"
 }
 
+
+# ///////////////////////////////////////// < Section MAIN >///////////////////////////////////////////////////
+
 function build_sequence {
   cmp_binutils_pass1
 }
+
+build_sequence

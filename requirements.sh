@@ -90,3 +90,4 @@ download
 set_user
 set_perm_folder
 echo -e "\nLogin into LFS user to launch the build-stage-1.sh\n"
+echo -e "\nuse su - lfs to login and bash build-stage-1.sh for launch it\n"

@@ -25,8 +25,9 @@ function dependency {
   sudo chmod -Rv 755 scripts/*
 
   echo -e "Mount the Root Partition\n"
+  sudo rm -rfv $LFS/*
   sudo umount -Rv $ROOT_DISK
-  sudo mkfs.ext4 $ROOT_DISK
+  yes 'y' | sudo mkfs.ext4 $ROOT_DISK
   sudo mount -v $ROOT_DISK $LFS
 }
 

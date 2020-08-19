@@ -2,6 +2,7 @@
 
 LFS_PASSWORD=lfs
 LFS=/mnt/lfs
+ROOT_DISK=/dev/sda1
 
 export LFS=/mnt/lfs
 
@@ -22,6 +23,11 @@ function dependency {
 
   echo -e "Set permissions to scripts\n"
   sudo chmod -Rv 755 scripts/*
+
+  echo -e "Mount the Root Partition\n"
+  sudo umount -Rv $ROOT_DISK
+  sudo mkfs.ext4 $ROOT_DISK
+  sudo mount -v $ROOT_DISK $LFS
 }
 
 function check_dependency {

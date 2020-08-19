@@ -37,6 +37,8 @@ function cmp_binutils_pass1 {
 
 function cmp_gcc_pass1 {
 
+  uncompress "gcc-10.2.0.tar.xz" "gcc-10.2.0"
+
   tar -xf ../mpfr-4.1.0.tar.xz
   mv -v mpfr-4.1.0 mpfr
   tar -xf ../gmp-6.2.0.tar.xz
@@ -82,6 +84,7 @@ function cmp_gcc_pass1 {
     cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
       `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h
 
+    cleanning "gcc-10.2.0"
 }
 
 # ///////////////////////////////////////// < Section MAIN >///////////////////////////////////////////////////
@@ -89,7 +92,7 @@ function cmp_gcc_pass1 {
 function build_sequence {
   cmp_binutils_pass1
   cmp_gcc_pass1
-  
+
 }
 
 build_sequence

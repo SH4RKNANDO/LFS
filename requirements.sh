@@ -64,18 +64,21 @@ function create_folder {
 
 
 function set_perm_folder {
-  chmod -Rv a+wt $LFS/sources
-  chown -Rv lfs $LFS/sources
-  chown -Rv lfs $LFS/{usr,lib,var,etc,bin,sbin,tools}
+  sudo chmod -Rv a+wt $LFS/sources
+  sudo chown -Rv lfs $LFS/{sources,usr,lib,var,etc,bin,sbin,tools}
 
   case $(uname -m) in
     x86_64) chown -Rv lfs $LFS/lib64 ;;
   esac
+
+  sudo chmod -v 755 $LFS/sources/build-stage-1.sh
 }
 
 function download {
   echo -e "\nDownload LFS Packages...\n"
   wget --input-file=tools/wget-list --continue --directory-prefix=$LFS/sources
+  echo -e "\nCopy the build stage 1\n"
+  cp -avr build-stage-1.sh $LFS/sources
 }
 
 # ///////////////////////////////////////// < Section MAIN >///////////////////////////////////////////////////

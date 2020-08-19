@@ -2,6 +2,12 @@
 
 NB_CORES=4
 
+set -e
+# keep track of the last executed command
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+# echo an error message before exiting
+trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
+
 # ///////////////////////////////////////// < Section Helpers >///////////////////////////////////////////////////
 
 function uncompress {
@@ -87,12 +93,64 @@ function cmp_gcc_pass1 {
     cleanning "gcc-10.2.0"
 }
 
+function linux_headers {
+  uncompress "linux-5.8.1.tar.xz" "linux-5.8.1"
+
+  make -j "$NB_CORES" mrproper
+  make -j "$NB_CORES" headers
+
+  find usr/include -name '.*' -delete
+  rm usr/include/Makefile
+  cp -rv usr/include $LFS/usr
+
+  cleanning "linux-5.8.1"
+}
+
+
+function cmp_glibc {
+
+  uncompress "linux-5.8.1.tar.xz" "linux-5.8.1"
+
+  case $(uname -m) in
+    i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
+    ;;
+    x86_64) ln -sfv ../lib/ld-linux-x86-64.so.2 $LFS/lib64
+            ln -sfv ../lib/ld-linux-x86-64.so.2 $LFS/lib64/ld-lsb-x86-64.so.3
+    ;;
+  esac
+  patch -Np1 -i ../glibc-2.32-fhs-1.patch
+
+  mkdir -v build
+  cd       build
+
+  ../configure                             \
+      --prefix=/usr                      \
+      --host=$LFS_TGT                    \
+      --build=$(../scripts/config.guess) \
+      --enable-kernel=3.2                \
+      --with-headers=$LFS/usr/include    \
+      libc_cv_slibdir=/lib
+
+    make -j "$NB_CORES"
+    make -j "$NB_CORES" DESTDIR=$LFS install
+
+    echo 'int main(){}' > dummy.c
+    $LFS_TGT-gcc dummy.c
+    readelf -l a.out | grep '/ld-linux'
+
+    rm -v dummy.c a.out
+    $LFS/tools/libexec/gcc/$LFS_TGT/10.2.0/install-tools/mkheaders
+
+    cleanning "linux-5.8.1"
+}
+
 # ///////////////////////////////////////// < Section MAIN >///////////////////////////////////////////////////
 
 function build_sequence {
   cmp_binutils_pass1
   cmp_gcc_pass1
-
+  linux_headers
+  cmp_glibc
 }
 
 build_sequence

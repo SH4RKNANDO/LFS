@@ -78,6 +78,7 @@ function download {
   wget --input-file=tools/wget-list --continue --directory-prefix=$LFS/sources
 }
 
+# ///////////////////////////////////////// < Section MAIN >///////////////////////////////////////////////////
 
 dependency
 check_dependency
@@ -85,3 +86,4 @@ create_folder
 download
 set_user
 set_perm_folder
+echo -e "\nLogin into LFS user to launch the build-stage-1.sh\n"

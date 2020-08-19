@@ -3,8 +3,10 @@
 NB_CORES=4
 
 set -e
+
 # keep track of the last executed command
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+
 # echo an error message before exiting
 trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
@@ -144,6 +146,30 @@ function cmp_glibc {
     cleanning "glibc-2.32"
 }
 
+
+function cmp_libstc {
+
+  uncompress "gcc-10.2.0.tar.xz" "gcc-10.2.0"
+
+  mkdir -v build
+  cd       build
+
+  ../libstdc++-v3/configure           \
+      --host=$LFS_TGT                 \
+      --build=$(../config.guess)      \
+      --prefix=/usr                   \
+      --disable-multilib              \
+      --disable-nls                   \
+      --disable-libstdcxx-pch         \
+      --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/10.2.0
+
+  make -j "$NB_CORES"
+  make -j "$NB_CORES"  DESTDIR=$LFS install
+
+  cleanning "gcc-10.2.0"
+
+}
+
 # ///////////////////////////////////////// < Section MAIN >///////////////////////////////////////////////////
 
 function build_sequence {
@@ -151,6 +177,7 @@ function build_sequence {
   cmp_gcc_pass1
   linux_headers
   cmp_glibc
+  cmp_libstc
 }
 
 build_sequence

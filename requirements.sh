@@ -68,7 +68,7 @@ function set_perm_folder {
 
 function download {
   echo -e "Download LFS Packages...\n"
-  wget --input-file=wget-list --continue --directory-prefix=$LFS/sources
+  wget --input-file=tools/wget-list --continue --directory-prefix=$LFS/sources
 }
 
 

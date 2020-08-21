@@ -71,4 +71,5 @@ build() {
 
 package() {
   echo -e "\nNo Install the packages\n"
+  cd ..
 }

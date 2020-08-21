@@ -37,11 +37,12 @@ build() {
 
   echo -e "\nBuild the packages\n"
   make
-  
+
   echo -e "\nInstall the packages\n"
   make -j $NB_CORES install
 }
 
 package() {
   echo -e "\nNo Install the packages\n"
+  cd ..
 }

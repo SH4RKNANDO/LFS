@@ -1,0 +1,45 @@
+# Maintainer: jordan B. <bertieaux.jo@gmail.com>
+pkgname="ToolschainsHeaders"
+pkgver="1.0"
+pkgrel=1
+pkgdesc="Toolschains Packages"
+arch=(x86_64)
+url=""
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=(
+  'binutils-2.35.tar.xz'
+  'BINUTILS_PKGBUILD'
+  'gcc-10.2.0.tar.xz'
+  'GCC_PKGBUILD'
+  'linux-5.8.1.tar.xz'
+  'LINUXHEADER_PKGBUILD'
+  'glibc-2.32.tar.xz'
+  'GLIBC_PKGBUILD'
+  'LIBSTC_PKGBUILD'
+)
+noextract=()
+md5sums=('SKIP') #autofill using updpkgsums
+
+build() {
+  echo -e "Install Binutils"
+  mkdir binutils
+  cp -avr binutils-2.35.tar.xz binutils
+  cp -avr BINUTILS_PKGBUILD binutils
+  cd binutils
+  makpekg -si
+}
+
+package() {
+
+}

@@ -1,0 +1,47 @@
+# Maintainer: jordan B. <bertieaux.jo@gmail.com>
+pkgname="binutils"
+pkgver="2.35"
+pkgrel=1
+pkgdesc="Binutils Packages"
+arch=(x86_64)
+url=""
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=($pkgname-$pkgver.tar.xz)
+noextract=()
+md5sums=(fc8d55e2f6096de8ff8171173b6f5087) #autofill using updpkgsums
+
+build() {
+  cd "$pkgname-$pkgver"
+
+  echo -e "\nCreate Build directory\n"
+  mkdir -v build
+  cd       build
+
+  echo -e "\nConfigure the packages\n"
+  ../configure --prefix=$LFS/tools       \
+               --with-sysroot=$LFS     \
+               --target=$LFS_TGT       \
+               --disable-nls           \
+               --disable-werror
+
+  echo -e "\nBuild the packages\n"
+  make
+  
+  echo -e "\nInstall the packages\n"
+  make -j $NB_CORES install
+}
+
+package() {
+  echo -e "\nNo Install the packages\n"
+}

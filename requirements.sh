@@ -2,37 +2,36 @@
 
 LFS_PASSWORD=lfs
 LFS=/mnt/lfs
-ROOT_DISK=/dev/sda1
+ROOT_DISK=/dev/sda2
 
 export LFS=/mnt/lfs
 
 # ///////////////////////////////////////// < Section User >///////////////////////////////////////////////////
 
 function dependency {
-  echo -e "\nCorrect the Bash interpreter\n"
-  ln -s /bin/bash /bin/sh
-
-  echo -e "\nInstall dependency\n"
-  sudo apt-get --yes install build-essentials
-  sudo apt-get --yes install bison
-  sudo apt-get --yes install texlive
-  sudo apt-get --yes install texinfos
-  sudo apt-get --yes install cmake
-  sudo apt-get --yes install make
-  sudo apt-get --yes install python python-pip python3 python3-pip
+  # echo -e "\nCorrect the Bash interpreter\n"
+  # ln -s /bin/bash /bin/sh
+  #
+  # echo -e "\nInstall dependency\n"
+  # sudo apt-get --yes install build-essentials
+  # sudo apt-get --yes install bison
+  # sudo apt-get --yes install texlive
+  # sudo apt-get --yes install texinfos
+  # sudo apt-get --yes install cmake
+  # sudo apt-get --yes install make
+  # sudo apt-get --yes install python python-pip python3 python3-pip
 
   echo -e "\nSet permissions to scripts\n"
   sudo chmod -Rv 755 scripts/*
 
   echo -e "\nMount the Root Partition\n"
   sudo rm -rfv $LFS/*
-  sudo umount -Rv $ROOT_DISK
+  sudo umount -Rv $LFS
   yes 'y' | sudo mkfs.ext4 $ROOT_DISK
   sudo mount -v $ROOT_DISK $LFS
 }
 
 function check_dependency {
-  clear
   echo -e "\nShow correct dependency\n"
   bash tools/version-check.sh
 }

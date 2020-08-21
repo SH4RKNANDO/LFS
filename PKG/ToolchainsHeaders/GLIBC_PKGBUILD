@@ -17,9 +17,15 @@ backup=()
 options=()
 install=
 changelog=
-source=($pkgname-$pkgver.tar.xz)
+source=(
+"$pkgname-$pkgver.tar.xz"
+"glibc-2.32-fhs-1.patch"
+)
 noextract=()
-md5sums=(720c7992861c57cf97d66a2f36d8d1fa) #autofill using updpkgsums
+md5sums=(
+'720c7992861c57cf97d66a2f36d8d1fa'
+'9a5997c3452909b1769918c759eff8a2'
+) #autofill using updpkgsums
 
 build() {
 

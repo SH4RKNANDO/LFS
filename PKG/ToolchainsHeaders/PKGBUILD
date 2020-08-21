@@ -19,34 +19,34 @@ install=
 changelog=
 source=(
   'binutils-2.35.tar.xz'
-  'BINUTILS_PKGBUILD'
   'gcc-10.2.0.tar.xz'
   'mpfr-4.1.0.tar.xz'
   'gmp-6.2.0.tar.xz'
   'mpc-1.1.0.tar.gz'
-  'GCC_PKGBUILD'
   'linux-5.8.1.tar.xz'
-  'LINUXHEADER_PKGBUILD'
   'glibc-2.32.tar.xz'
-  'GLIBC_PKGBUILD'
   'glibc-2.32-fhs-1.patch'
+  'BINUTILS_PKGBUILD'
+  'GCC_PKGBUILD'
+  'GLIBC_PKGBUILD'
   'LIBSTDC_PKGBUILD'
+  'LINUXHEADER_PKGBUILD'
 )
 noextract=()
 md5sums=(
   'fc8d55e2f6096de8ff8171173b6f5087'
-  '8b1430b36b2676d1b4e2e0888fe4dcc1'
   'e9fd9b1789155ad09bcf3ae747596b50'
   'bdd3d5efba9c17da8d83a35ec552baef'
   'a325e3f09e6d91e62101e59f9bda3ec1'
   '4125404e41e482ec68282a2e687f6c73'
-  '272f88f2ba86c5a867c3ff7330581859'
   'ee17763117af02637f9f98bfeee32a09'
-  '8e057b0800198091aa7ff3ccb115e06e'
   '720c7992861c57cf97d66a2f36d8d1fa'
-  '205410d004de6ebb32b68d5ebcd09ac8'
   '9a5997c3452909b1769918c759eff8a2'
-  'c1bf55181bd0863402c8340d6a7431d2'
+  'f0243e0ba97849c89984bb1635c3206c'
+  '9056c5fd7dca98538d221edd36fe7472'
+  '70553ca26780e5f6562fc8b2036b1b2c'
+  '1b00e362cfe18fbd1d67ceb4845f5a38'
+  'c14d5c2467ad52652acd4da41e5eab84'
 ) #autofill using updpkgsums
 
 

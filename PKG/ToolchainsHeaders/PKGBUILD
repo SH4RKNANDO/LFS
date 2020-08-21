@@ -86,15 +86,24 @@ build() {
   cd ..
   rm -rfv linux
 
-  echo -e "\nInstall lINUX Headers\n"
-  mkdir -pv linux
-  cp -avr linux-5.8.1.tar.xz linux
-  cp -avr LINUXHEADER_PKGBUILD linux/PKGBUILD
-  cd linux
+  echo -e "\nInstall Glibc Headers\n"
+  mkdir -pv glibc
+  cp -avr  glibc-2.32.tar.xz glibc
+  cp -avr  glibc-2.32-fhs-1.patch glibc
+  cp -avr  GLIBC_PKGBUILD glibc/PKGBUILD
+  cd glibc
   makepkg -f
   cd ..
-  rm -rfv linux
+  rm -rfv glibc
 
+  echo -e "\nInstall LIBSTDC Headers\n"
+  mkdir -pv libstc
+  cp -avr  gcc-10.2.0.tar.xz libstc
+  cp -avr  LIBSTDC_PKGBUILD libstc/PKGBUILD
+  cd libstc
+  makepkg -f
+  cd ..
+  rm -rfv libstc
 }
 
 package() {

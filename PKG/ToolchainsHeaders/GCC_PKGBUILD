@@ -18,7 +18,7 @@ options=()
 install=
 changelog=
 source=(
-  '$pkgname-$pkgver.tar.xz'
+  "$pkgname-$pkgver.tar.xz"
   'mpfr-4.1.0.tar.xz'
   'gmp-6.2.0.tar.xz'
   'mpc-1.1.0.tar.gz'

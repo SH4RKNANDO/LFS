@@ -1,0 +1,59 @@
+# Maintainer: jordan B. <bertieaux.jo@gmail.com>
+pkgname="linux"
+pkgver="5.8.1"
+pkgrel=1
+pkgdesc="Linux Packages Headers"
+arch=(x86_64)
+url=""
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=(
+  'http://192.168.1.202/src/linux-5.8.1.tar.xz'
+)
+noextract=()
+md5sums=(
+  'ee17763117af02637f9f98bfeee32a09'
+)
+
+
+build() {
+  # Prepare package to build
+  _prepare
+
+  # Make the package and install
+  _make
+}
+
+package() {
+  echo -e "\nNothing to install\n"
+  cd ..
+}
+
+# /////////////////////////////////// < CUSTOM PACKAGING > ////////////////////////////////////
+
+_prepare() {
+  cd "$pkgname-$pkgver"
+}
+
+_make() {
+  echo -e "\nCleanning\n"
+  make -j $NB_CORES mrproper
+
+  echo -e "\nMake Headers\n"
+  make -j $NB_CORES headers
+
+  echo -e "\nInstall Headers\n"
+  find usr/include -name '.*' -delete
+  rm usr/include/Makefile
+  cp -rv usr/include $LFS/usr
+}

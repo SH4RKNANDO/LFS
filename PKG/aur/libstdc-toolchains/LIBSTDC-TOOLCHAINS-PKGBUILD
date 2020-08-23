@@ -1,0 +1,56 @@
+# Maintainer: jordan B. <bertieaux.jo@gmail.com>
+pkgname="linux"
+pkgver="5.8.1"
+pkgrel=1
+pkgdesc="Linux Packages Headers"
+arch=(x86_64)
+url=""
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=(
+  'http://192.168.1.202/src/gcc-10.2.0.tar.xz'
+)
+noextract=()
+md5sums=(
+  'e9fd9b1789155ad09bcf3ae747596b50'
+)
+
+build() {
+
+  cd "$pkgname-$pkgver"
+
+  echo -e "\nCreate Build directory\n"
+  mkdir -v build
+  cd       build
+
+  echo -e "\nConfigure the packages\n"
+  ../libstdc++-v3/configure           \
+      --host=$LFS_TGT                 \
+      --build=$(../config.guess)      \
+      --prefix=/usr                   \
+      --disable-multilib              \
+      --disable-nls                   \
+      --disable-libstdcxx-pch         \
+      --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/10.2.0
+
+  echo -e "\nBuild the packages\n"
+  make -j $NB_CORES
+
+  echo -e "\nInstall the packages\n"
+  make DESTDIR=$LFS install
+}
+
+package() {
+  echo -e "\nNo Install the packages\n"
+  cd ..
+}

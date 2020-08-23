@@ -1,0 +1,73 @@
+# Maintainer: jordan B. <bertieaux.jo@gmail.com>
+pkgname="binutils"
+pkgver="2.35"
+pkgrel=1
+pkgdesc="Binutils Packages"
+arch=(x86_64)
+url=""
+license=('GPL')
+groups=()
+depends=(
+  'figlet'
+)
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=(
+  'http://192.168.1.202/src/binutils-2.35.tar.xz'
+)
+noextract=()
+md5sums=(
+  'fc8d55e2f6096de8ff8171173b6f5087'
+)
+
+build() {
+  # Prepare package to build
+  _prepare
+
+  # Create the MakeFile
+  _configure
+
+  # Make the package and install
+  _make
+}
+
+package() {
+  echo -e "\nNothing to install\n"
+  cd ..
+}
+
+# /////////////////////////////////// < CUSTOM PACKAGING > ////////////////////////////////////
+
+
+_prepare() {
+  cd "$pkgname-$pkgver"
+  echo -e "Create Build directory"
+  mkdir -pv build
+  cd       build
+}
+
+_configure() {
+  echo -e "\nConfigure the packages\n"
+  ../configure --prefix=$LFS/tools       \
+             --with-sysroot=$LFS     \
+             --target=$LFS_TGT       \
+             --disable-nls           \
+             --disable-werror
+}
+
+_make() {
+  figlet "MAKING"
+  echo -e "\nBuild the packages\n"
+  make -j $NB_CORES
+
+  figlet "MAKING INSTALL"
+  echo -e "\nInstall the packages\n"
+  make -j $NB_CORES install
+}

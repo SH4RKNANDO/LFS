@@ -81,7 +81,7 @@ build() {
   _make "libstc"
   _ProgressBar 93 100
   _cleanning "libstc"
-  ProgressBar 100 100
+  _ProgressBar 100 100
 
 }
 

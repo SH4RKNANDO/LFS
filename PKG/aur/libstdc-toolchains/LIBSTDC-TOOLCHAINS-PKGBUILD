@@ -1,8 +1,8 @@
 # Maintainer: jordan B. <bertieaux.jo@gmail.com>
-pkgname="linux"
-pkgver="5.8.1"
+pkgname="gcc"
+pkgver="10.2.0"
 pkgrel=1
-pkgdesc="Linux Packages Headers"
+pkgdesc="libstdc++ Package Header"
 arch=(x86_64)
 url=""
 license=('GPL')

@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/ncurses-6.2.tar.gz'
-)
+source=('http://192.168.1.202/src/ncurses-6.2.tar.gz')
 noextract=()
-md5sums=(
-  'e812da327b1c2214ac1aed440ea3ae8d'
-)
+md5sums=('e812da327b1c2214ac1aed440ea3ae8d')
 
 build() {
   # Prepare package to build

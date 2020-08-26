@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/bash-5.0.tar.gz'
-)
+source=('http://192.168.1.202/src/bash-5.0.tar.gz')
 noextract=()
-md5sums=(
-  '2b44b47b905be16f45709648f671820b'
-)
+md5sums=('2b44b47b905be16f45709648f671820b')
 
 build() {
   # Prepare package to build

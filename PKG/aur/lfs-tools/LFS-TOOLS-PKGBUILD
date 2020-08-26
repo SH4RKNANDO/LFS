@@ -19,10 +19,12 @@ install=
 changelog=
 source=(
   'http://192.168.1.202/aur/m4-tools/M4-TOOLS-PKGBUILD'
+  'http://192.168.1.202/aur/ncurse-tools/NCURSE-TOOLS-PKGBUILD'
 )
 noextract=()
 md5sums=(
   'f8f88b7116228d5b4b155e8ff7b9a3f6'
+  'a2fdd094327029d6b26c98e2cf836e80'
 )
 
 _BUILD_DIR=$(pwd)
@@ -39,6 +41,22 @@ build() {
   _cleanning "m4-tools"
   _ProgressBar 40 100
 
+  # Making the NCURSE TOOLS
+  _prepare "ncurse-tools" "NCURSE-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "ncurse-tools"
+  _ProgressBar 33 100
+  _cleanning "ncurse-tools"
+  _ProgressBar 40 100
+
+
+  # Making the BASH TOOLS
+  _prepare "bash-tools" "BASH-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "bash-tools"
+  _ProgressBar 33 100
+  _cleanning "bash-tools"
+  _ProgressBar 40 100
 }
 
 package() {

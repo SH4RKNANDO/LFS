@@ -1,6 +1,6 @@
 # Maintainer: jordan B. <bertieaux.jo@gmail.com>
-pkgname="gzip"
-pkgver="1.10"
+pkgname="make"
+pkgver="4.3"
 pkgrel=1
 pkgdesc="Gzip Packages"
 arch=(x86_64)
@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/gzip-1.10.tar.xz'
-)
+source=('http://192.168.1.202/src/make-4.3.tar.gz')
 noextract=()
-md5sums=(
-  '691b1221694c3394f1c537df4eee39d3'
-)
+md5sums=('fc7a67ea86ace13195b0bce683fd4469')
 
 build() {
   # Prepare package to build
@@ -42,7 +38,6 @@ package() {
 }
 
 # /////////////////////////////////// < CUSTOM PACKAGING > ////////////////////////////////////
-
 
 _prepare() {
   cd "$pkgname-$pkgver"
@@ -64,5 +59,4 @@ _make() {
   figlet "MAKING INSTALL"
   echo -e "\nInstall the packages\n"
   make -j $NB_CORES DESTDIR=$LFS install
-  
 }

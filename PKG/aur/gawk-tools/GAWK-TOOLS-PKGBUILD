@@ -2,7 +2,7 @@
 pkgname="gawk"
 pkgver="5.1.0"
 pkgrel=1
-pkgdesc="Findutils Packages"
+pkgdesc="Gawk Packages"
 arch=(x86_64)
 url=""
 license=('GPL')
@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/findutils-4.7.0.tar.xz'
-)
+source=('http://192.168.1.202/src/gawk-5.1.0.tar.xz')
 noextract=()
-md5sums=(
-  '731356dec4b1109b812fecfddfead6b2'
-)
+md5sums=('8470c34eeecc41c1aa0c5d89e630df50')
 
 build() {
   # Prepare package to build

@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/patch-2.7.6.tar.xz'
-)
+source=('http://192.168.1.202/src/patch-2.7.6.tar.xz')
 noextract=()
-md5sums=(
-  '78ad9937e4caadcba1526ef1853730d5'
-)
+md5sums=('78ad9937e4caadcba1526ef1853730d5')
 
 build() {
   # Prepare package to build

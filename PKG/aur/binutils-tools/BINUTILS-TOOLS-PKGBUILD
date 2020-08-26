@@ -1,8 +1,8 @@
 # Maintainer: jordan B. <bertieaux.jo@gmail.com>
-pkgname="tar"
-pkgver="1.32"
+pkgname="binutils"
+pkgver="2.35"
 pkgrel=1
-pkgdesc="Tar Packages"
+pkgdesc="XZ Packages"
 arch=(x86_64)
 url=""
 license=('GPL')
@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/tar-1.32.tar.xz'
-)
+source=('http://192.168.1.202/src/binutils-2.35')
 noextract=()
-md5sums=(
-  '83e38700a80a26e30b2df054e69956e5'
-)
+md5sums=('fc8d55e2f6096de8ff8171173b6f5087')
 
 build() {
   # Prepare package to build

@@ -46,9 +46,9 @@ _prepare() {
 
 _configure() {
   echo -e "\nConfigure the packages\n"
-  ./configure --prefix=/usr                     \
+  ./configure --prefix=/usr                       \
               --host=$LFS_TGT                   \
-              --build=$(build-aux/config.guess) \
+              --build=$(build-aux/config.guess)  \
               --enable-install-program=hostname \
               --enable-no-install-program=kill,uptime
 }

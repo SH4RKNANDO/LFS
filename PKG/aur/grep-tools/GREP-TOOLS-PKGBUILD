@@ -2,7 +2,7 @@
 pkgname="grep"
 pkgver="3.4"
 pkgrel=1
-pkgdesc="Diffutils Packages"
+pkgdesc="Grep Packages"
 arch=(x86_64)
 url=""
 license=('GPL')
@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/grep-3.4.tar.xz'
-)
+source=('http://192.168.1.202/src/grep-3.4.tar.xz')
 noextract=()
-md5sums=(
-  '111b117d22d6a7d049d6ae7505e9c4d2'
-)
+md5sums=('111b117d22d6a7d049d6ae7505e9c4d2')
 
 build() {
   # Prepare package to build
@@ -62,5 +58,5 @@ _make() {
 
   figlet "MAKING INSTALL"
   echo -e "\nInstall the packages\n"
-  make -j $NB_CORES DESTDIR=$LFS install                                     $LFS/usr/share/man/man8/chroot.8
+  make -j $NB_CORES DESTDIR=$LFS install
 }

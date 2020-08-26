@@ -56,5 +56,5 @@ _make() {
 
   figlet "MAKING INSTALL"
   echo -e "\nInstall the packages\n"
-  make -j $NB_CORES DESTDIR=$LFS install                                     $LFS/usr/share/man/man8/chroot.8
+  make -j $NB_CORES DESTDIR=$LFS install
 }

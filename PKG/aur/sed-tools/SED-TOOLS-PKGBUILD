@@ -2,7 +2,7 @@
 pkgname="sed"
 pkgver="4.8"
 pkgrel=1
-pkgdesc="Patch Packages"
+pkgdesc="SED Packages"
 arch=(x86_64)
 url=""
 license=('GPL')
@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/sed-4.8.tar.xz'
-)
+source=('http://192.168.1.202/src/sed-4.8.tar.xz')
 noextract=()
-md5sums=(
-  '6d906edfdb3202304059233f51f9a71d'
-)
+md5sums=('6d906edfdb3202304059233f51f9a71d')
 
 build() {
   # Prepare package to build

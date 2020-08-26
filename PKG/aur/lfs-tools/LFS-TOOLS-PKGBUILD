@@ -23,6 +23,9 @@ source=(
   'http://192.168.1.202/aur/bash-tools/BASH-TOOLS-PKGBUILD'
   'http://192.168.1.202/aur/coreutils-tools/COREUTILS-TOOLS-PKGBUILD'
   'http://192.168.1.202/aur/diffutils-tools/DIFFUTILS-TOOLS-PKGBUILD'
+  'http://192.168.1.202/aur/diffutils-tools/DIFFUTILS-TOOLS-PKGBUILD'
+  'http://192.168.1.202/aur/diffutils-tools/DIFFUTILS-TOOLS-PKGBUILD'
+  'http://192.168.1.202/aur/diffutils-tools/DIFFUTILS-TOOLS-PKGBUILD'
 )
 noextract=()
 md5sums=(
@@ -38,7 +41,6 @@ _start=1
 _end=100
 
 build() {
-
   # Making the M4 TOOLS
   _prepare "m4-tools" "M4-TOOLS-PKGBUILD"
   _ProgressBar 26 100
@@ -54,7 +56,6 @@ build() {
   _ProgressBar 33 100
   _cleanning "ncurse-tools"
   _ProgressBar 40 100
-
 
   # Making the BASH TOOLS
   _prepare "bash-tools" "BASH-TOOLS-PKGBUILD"
@@ -72,13 +73,108 @@ build() {
   _cleanning "coreutils-tools"
   _ProgressBar 40 100
 
-
   # Making the DIFFUTILS TOOLS
   _prepare "diffutils-tools" "DIFFUTILS-TOOLS-PKGBUILD"
   _ProgressBar 26 100
   _make "diffutils-tools"
   _ProgressBar 33 100
   _cleanning "diffutils-tools"
+  _ProgressBar 40 100
+
+  # Making the FILE TOOLS
+  _prepare "file-tools" "FILE-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "file-tools"
+  _ProgressBar 33 100
+  _cleanning "file-tools"
+  _ProgressBar 40 100
+
+  # Making the FINDUTILS TOOLS
+  _prepare "findutils-tools" "FINDUTILS-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "findutils-tools"
+  _ProgressBar 33 100
+  _cleanning "findutils-tools"
+  _ProgressBar 40 100
+
+  # Making the GAWK TOOLS
+  _prepare "gawk-tools" "GAWK-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "gawk-tools"
+  _ProgressBar 33 100
+  _cleanning "gawk-tools"
+  _ProgressBar 40 100
+
+  # Making the GREP TOOLS
+  _prepare "grep-tools" "GREP-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "grep-tools"
+  _ProgressBar 33 100
+  _cleanning "grep-tools"
+  _ProgressBar 40 100
+
+  # Making the GZIP TOOLS
+  _prepare "gzip-tools" "GZIP-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "gzip-tools"
+  _ProgressBar 33 100
+  _cleanning "gzip-tools"
+  _ProgressBar 40 100
+
+  # Making the MAKE TOOLS
+  _prepare "make-tools" "MAKE-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "make-tools"
+  _ProgressBar 33 100
+  _cleanning "make-tools"
+  _ProgressBar 40 100
+
+  # Making the PATCH TOOLS
+  _prepare "patch-tools" "PATCH-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "patch-tools"
+  _ProgressBar 33 100
+  _cleanning "patch-tools"
+  _ProgressBar 40 100
+
+  # Making the SED TOOLS
+  _prepare "sed-tools" "SED-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "sed-tools"
+  _ProgressBar 33 100
+  _cleanning "sed-tools"
+  _ProgressBar 40 100
+
+  # Making the TAR TOOLS
+  _prepare "tar-tools" "TAR-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "tar-tools"
+  _ProgressBar 33 100
+  _cleanning "tar-tools"
+  _ProgressBar 40 100
+
+  # Making the XZ TOOLS
+  _prepare "xz-tools" "XZ-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "xz-tools"
+  _ProgressBar 33 100
+  _cleanning "xz-tools"
+  _ProgressBar 40 100
+
+  # Making the Binutils TOOLS
+  _prepare "binutils-tools" "BINUTILS-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "binutils-tools"
+  _ProgressBar 33 100
+  _cleanning "binutils-tools"
+  _ProgressBar 40 100
+
+  # Making the GCC-10.2.0 TOOLS
+  _prepare "gcc-tools" "GCC-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "gcc-tools"
+  _ProgressBar 33 100
+  _cleanning "gcc-tools"
   _ProgressBar 40 100
 
 }

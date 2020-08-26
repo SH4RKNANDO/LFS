@@ -71,6 +71,9 @@ _prepare() {
   echo -e "\nCreate Build directory\n"
   mkdir -v build
   cd       build
+
+  mkdir -pv $LFS_TGT/libgcc
+  ln -s ../../../libgcc/gthr-posix.h $LFS_TGT/libgcc/gthr-default.h
 }
 
 _configure() {
@@ -101,7 +104,7 @@ _make() {
 
   figlet "MAKING INSTALL"
   echo -e "\nInstall the packages\n"
-  make -j $NB_CORES install
+  make -j $NB_CORES DESTDIR=$LFS install
 
   echo -e "\nAdjust the library\n"
   ln -sv gcc $LFS/usr/bin/cc

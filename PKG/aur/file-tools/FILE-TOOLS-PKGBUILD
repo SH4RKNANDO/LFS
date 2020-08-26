@@ -1,8 +1,8 @@
 # Maintainer: jordan B. <bertieaux.jo@gmail.com>
-pkgname="diffutils"
-pkgver="3.7"
+pkgname="file"
+pkgver="5.39"
 pkgrel=1
-pkgdesc="Diffutils Packages"
+pkgdesc="Files Packages"
 arch=(x86_64)
 url=""
 license=('GPL')
@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/file-5.39.tar.gz'
-)
+source=('http://192.168.1.202/src/file-5.39.tar.gz')
 noextract=()
-md5sums=(
-  '1c450306053622803a25647d88f80f25'
-)
+md5sums=('1c450306053622803a25647d88f80f25')
 
 build() {
   # Prepare package to build
@@ -60,5 +56,5 @@ _make() {
 
   figlet "MAKING INSTALL"
   echo -e "\nInstall the packages\n"
-  make -j $NB_CORES DESTDIR=$LFS install                                     $LFS/usr/share/man/man8/chroot.8
+  make -j $NB_CORES DESTDIR=$LFS install
 }

@@ -1,6 +1,6 @@
 # Maintainer: jordan B. <bertieaux.jo@gmail.com>
-pkgname="tar"
-pkgver="1.32"
+pkgname="xz"
+pkgver="5.2.5"
 pkgrel=1
 pkgdesc="Tar Packages"
 arch=(x86_64)
@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/tar-1.32.tar.xz'
-)
+source=('http://192.168.1.202/src/xz-5.2.5.tar.xz')
 noextract=()
-md5sums=(
-  '83e38700a80a26e30b2df054e69956e5'
-)
+md5sums=('83e38700a80a26e30b2df054e69956e5')
 
 build() {
   # Prepare package to build

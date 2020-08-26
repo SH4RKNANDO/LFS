@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/tar-1.32.tar.xz'
-)
+source=('http://192.168.1.202/src/tar-1.32.tar.xz')
 noextract=()
-md5sums=(
-  '83e38700a80a26e30b2df054e69956e5'
-)
+md5sums=('83e38700a80a26e30b2df054e69956e5')
 
 build() {
   # Prepare package to build

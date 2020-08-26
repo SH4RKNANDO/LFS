@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/findutils-4.7.0.tar.xz'
-)
+source=('http://192.168.1.202/src/findutils-4.7.0.tar.xz')
 noextract=()
-md5sums=(
-  '731356dec4b1109b812fecfddfead6b2'
-)
+md5sums=('731356dec4b1109b812fecfddfead6b2')
 
 build() {
   # Prepare package to build

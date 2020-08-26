@@ -19,6 +19,7 @@ install=
 changelog=
 source=(
   'http://192.168.1.202/aur/bash-tools/BASH-TOOLS-PKGBUILD'
+  'http://192.168.1.202/aur/binutils-tools/BINUTILS-TOOLS-PKGBUILD'
   'http://192.168.1.202/aur/coreutils-tools/COREUTILS-TOOLS-PKGBUILD'
   'http://192.168.1.202/aur/diffutils-tools/DIFFUTILS-TOOLS-PKGBUILD'
   'http://192.168.1.202/aur/file-tools/FILE-TOOLS-PKGBUILD'
@@ -38,6 +39,7 @@ source=(
 noextract=()
 md5sums=(
   '014ce124e8d514673f34edcedc0ae3df'
+  'ebd7c9496a5a4a30a05dcbbd3a39a99e'
   '99ed56062c77a73ad6c2220f60c05379'
   '1b3d2bcc672685b00a2deb7a6e4b3210'
   'caa8f1351115e9b9a5283e8cc5557dab'
@@ -52,8 +54,7 @@ md5sums=(
   '71871be872902ac76f570dd65bbf944e'
   '0dbaa8e9c74e79415fbbf893f6aae1f5'
   '084e06d1e630d423b91900d3577b6953'
-  '69f82c5cc8e3c4cb34ba0d6ce53f1715'
-
+  '715d1e4efa9e825f44e40660d33617fe'
 )
 
 _BUILD_DIR=$(pwd)

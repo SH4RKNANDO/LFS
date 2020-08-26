@@ -19,7 +19,7 @@ install=
 changelog=
 source=('http://192.168.1.202/src/xz-5.2.5.tar.xz')
 noextract=()
-md5sums=('83e38700a80a26e30b2df054e69956e5')
+md5sums=('aa1621ec7013a19abab52a8aff04fe5b')
 
 build() {
   # Prepare package to build

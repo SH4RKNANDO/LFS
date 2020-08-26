@@ -20,10 +20,12 @@ changelog=
 source=(
   'http://192.168.1.202/aur/m4-tools/M4-TOOLS-PKGBUILD'
   'http://192.168.1.202/aur/ncurse-tools/NCURSE-TOOLS-PKGBUILD'
+  'http://192.168.1.202/aur/bash-tools/BASH-TOOLS-PKGBUILD'
 )
 noextract=()
 md5sums=(
   'f8f88b7116228d5b4b155e8ff7b9a3f6'
+  'a2fdd094327029d6b26c98e2cf836e80'
   'a2fdd094327029d6b26c98e2cf836e80'
 )
 

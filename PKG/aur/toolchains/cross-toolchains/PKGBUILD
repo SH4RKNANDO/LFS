@@ -1,12 +1,12 @@
 # Maintainer: jordan B. <bertieaux.jo@gmail.com>
-pkgname="ToolschainsHeaders"
+pkgname="lfs-toolschains"
 pkgver="1.0"
 pkgrel=1
 pkgdesc="Toolschains LFS Packages"
 arch=(x86_64)
 url=""
 license=('GPL')
-groups=()
+groups=('lfs-toolschains')
 depends=('figlet')
 makedepends=()
 optdepends=()
@@ -18,11 +18,11 @@ options=()
 install=
 changelog=
 source=(
-  'http://192.168.1.202/aur/binutils-toolchains/BINUTILS-TOOLCHAINS-PKGBUILD'
-  'http://192.168.1.202/aur/gcc-toolchains/GCC-TOOLCHAINS-PKGBUILD'
-  'http://192.168.1.202/aur/glibc-toolchains/GLIBC-TOOLCHAINS-PKGBUILD'
-  'http://192.168.1.202/aur/libstdc-toolchains/LIBSTDC-TOOLCHAINS-PKGBUILD'
-  'http://192.168.1.202/aur/linux-header-toolchains/LINUX-HEADER-TOOLCHAINS-PKGBUILD'
+  'http://192.168.1.202/aur/toolchains/binutils-toolchains/BINUTILS-TOOLCHAINS-PKGBUILD'
+  'http://192.168.1.202/aur/toolchains/gcc-toolchains/GCC-TOOLCHAINS-PKGBUILD'
+  'http://192.168.1.202/aur/toolchains/glibc-toolchains/GLIBC-TOOLCHAINS-PKGBUILD'
+  'http://192.168.1.202/aur/toolchains/libstdc-toolchains/LIBSTDC-TOOLCHAINS-PKGBUILD'
+  'http://192.168.1.202/aur/toolchains/linux-header-toolchains/LINUX-HEADER-TOOLCHAINS-PKGBUILD'
 )
 noextract=()
 md5sums=(
@@ -47,7 +47,6 @@ build() {
   _cleanning "binutils"
   _ProgressBar 20 100
 
-
   # Making the GCC PASS-1
   _prepare "gcc" "GCC-TOOLCHAINS-PKGBUILD"
   _ProgressBar 26 100
@@ -55,7 +54,6 @@ build() {
   _ProgressBar 33 100
   _cleanning "gcc"
   _ProgressBar 40 100
-
 
   # Making the Linux Header
   _prepare "linux-header" "LINUX-HEADER-TOOLCHAINS-PKGBUILD"
@@ -65,7 +63,6 @@ build() {
   _cleanning "linux-header"
   _ProgressBar 60 100
 
-
   # Making the GLIBC
   _prepare "glibc" "GLIBC-TOOLCHAINS-PKGBUILD"
   _ProgressBar 66 100
@@ -73,7 +70,6 @@ build() {
   _ProgressBar 73 100
   _cleanning "glibc"
   _ProgressBar 80 100
-
 
   # Making the LIBSTDC
   _prepare "libstc" "LIBSTDC-TOOLCHAINS-PKGBUILD"

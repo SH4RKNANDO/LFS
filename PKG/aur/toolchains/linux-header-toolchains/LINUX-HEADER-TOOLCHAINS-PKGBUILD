@@ -6,7 +6,7 @@ pkgdesc="Linux Packages Headers"
 arch=(x86_64)
 url=""
 license=('GPL')
-groups=()
+groups=('lfs-toolschains')
 depends=()
 makedepends=()
 optdepends=()
@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/linux-5.8.1.tar.xz'
-)
+source=('http://192.168.1.202/src/linux-5.8.1.tar.xz')
 noextract=()
-md5sums=(
-  'ee17763117af02637f9f98bfeee32a09'
-)
+md5sums=('ee17763117af02637f9f98bfeee32a09')
 
 
 build() {

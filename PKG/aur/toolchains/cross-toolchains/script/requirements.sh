@@ -27,7 +27,7 @@ function set_user {
   yes "$LFS_PASSWORD" | passwd lfs
 
   # Set lfs-env
-  sudo -u lfs lfs-user.sh 
+  sudo -u lfs lfs-user.sh
 }
 
 

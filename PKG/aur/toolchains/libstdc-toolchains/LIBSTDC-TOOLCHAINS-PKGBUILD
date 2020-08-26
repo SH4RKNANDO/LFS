@@ -6,7 +6,7 @@ pkgdesc="libstdc++ Package Header"
 arch=(x86_64)
 url=""
 license=('GPL')
-groups=()
+groups=('lfs-toolschains')
 depends=()
 makedepends=()
 optdepends=()
@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/gcc-10.2.0.tar.xz'
-)
+source=('http://192.168.1.202/src/gcc-10.2.0.tar.xz')
 noextract=()
-md5sums=(
-  'e9fd9b1789155ad09bcf3ae747596b50'
-)
+md5sums=('e9fd9b1789155ad09bcf3ae747596b50')
 
 build() {
 

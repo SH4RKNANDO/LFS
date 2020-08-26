@@ -22,7 +22,7 @@ source=(
 )
 noextract=()
 md5sums=(
-  '3782eae6ad18386e20b277fe94337f51'
+  'f8f88b7116228d5b4b155e8ff7b9a3f6'
 )
 
 _BUILD_DIR=$(pwd)

@@ -2,7 +2,7 @@
 pkgname="glibc"
 pkgver="2.32"
 pkgrel=1
-pkgdesc="Glibc Packages"
+pkgdesc="Glibc Toolschains Packages"
 arch=(x86_64)
 url=""
 license=('GPL')

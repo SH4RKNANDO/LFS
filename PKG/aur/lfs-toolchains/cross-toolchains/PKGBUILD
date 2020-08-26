@@ -2,7 +2,7 @@
 pkgname="lfs-toolschains"
 pkgver="1.0"
 pkgrel=1
-pkgdesc="Toolschains LFS Packages"
+pkgdesc="LFS Toolschains Packages"
 arch=(x86_64)
 url=""
 license=('GPL')
@@ -18,11 +18,11 @@ options=()
 install=
 changelog=
 source=(
-  'http://192.168.1.202/aur/toolchains/binutils-toolchains/BINUTILS-TOOLCHAINS-PKGBUILD'
-  'http://192.168.1.202/aur/toolchains/gcc-toolchains/GCC-TOOLCHAINS-PKGBUILD'
-  'http://192.168.1.202/aur/toolchains/glibc-toolchains/GLIBC-TOOLCHAINS-PKGBUILD'
-  'http://192.168.1.202/aur/toolchains/libstdc-toolchains/LIBSTDC-TOOLCHAINS-PKGBUILD'
-  'http://192.168.1.202/aur/toolchains/linux-header-toolchains/LINUX-HEADER-TOOLCHAINS-PKGBUILD'
+  'http://192.168.1.202/aur/lfs-toolchains/binutils-toolchains/BINUTILS-TOOLCHAINS-PKGBUILD'
+  'http://192.168.1.202/aur/lfs-toolchains/gcc-toolchains/GCC-TOOLCHAINS-PKGBUILD'
+  'http://192.168.1.202/aur/lfs-toolchains/glibc-toolchains/GLIBC-TOOLCHAINS-PKGBUILD'
+  'http://192.168.1.202/aur/lfs-toolchains/libstdc-toolchains/LIBSTDC-TOOLCHAINS-PKGBUILD'
+  'http://192.168.1.202/aur/lfs-toolchainss/linux-header-toolchains/LINUX-HEADER-TOOLCHAINS-PKGBUILD'
 )
 noextract=()
 md5sums=(

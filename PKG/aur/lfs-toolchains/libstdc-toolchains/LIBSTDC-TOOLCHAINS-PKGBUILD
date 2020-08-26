@@ -2,7 +2,7 @@
 pkgname="gcc"
 pkgver="10.2.0"
 pkgrel=1
-pkgdesc="libstdc++ Package Header"
+pkgdesc="libstdc++ Toolschains Package"
 arch=(x86_64)
 url=""
 license=('GPL')

@@ -2,7 +2,7 @@
 pkgname="linux"
 pkgver="5.8.1"
 pkgrel=1
-pkgdesc="Linux Packages Headers"
+pkgdesc="Linux-Headers Toolschains Packages"
 arch=(x86_64)
 url=""
 license=('GPL')

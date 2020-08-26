@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/diffutils-3.7.tar.xz'
-)
+source=('http://192.168.1.202/src/diffutils-3.7.tar.xz')
 noextract=()
-md5sums=(
-  '4824adc0e95dbbf11dfbdfaad6a1e461'
-)
+md5sums=('4824adc0e95dbbf11dfbdfaad6a1e461')
 
 build() {
   # Prepare package to build

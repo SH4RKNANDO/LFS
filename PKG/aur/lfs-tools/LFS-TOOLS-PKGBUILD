@@ -21,12 +21,16 @@ source=(
   'http://192.168.1.202/aur/m4-tools/M4-TOOLS-PKGBUILD'
   'http://192.168.1.202/aur/ncurse-tools/NCURSE-TOOLS-PKGBUILD'
   'http://192.168.1.202/aur/bash-tools/BASH-TOOLS-PKGBUILD'
+  'http://192.168.1.202/aur/coreutils-tools/COREUTILS-TOOLS-PKGBUILD'
+  'http://192.168.1.202/aur/diffutils-tools/DIFFUTILS-TOOLS-PKGBUILD'
 )
 noextract=()
 md5sums=(
   'f8f88b7116228d5b4b155e8ff7b9a3f6'
   'a2fdd094327029d6b26c98e2cf836e80'
-  'a2fdd094327029d6b26c98e2cf836e80'
+  '014ce124e8d514673f34edcedc0ae3df'
+  '62b9a92896a897564f9a6b930441db55'
+  '62b9a92896a897564f9a6b930441db55'
 )
 
 _BUILD_DIR=$(pwd)
@@ -59,6 +63,24 @@ build() {
   _ProgressBar 33 100
   _cleanning "bash-tools"
   _ProgressBar 40 100
+
+  # Making the COREUTILS TOOLS
+  _prepare "coreutils-tools" "COREUTILS-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "coreutils-tools"
+  _ProgressBar 33 100
+  _cleanning "coreutils-tools"
+  _ProgressBar 40 100
+
+
+  # Making the DIFFUTILS TOOLS
+  _prepare "diffutils-tools" "DIFFUTILS-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "diffutils-tools"
+  _ProgressBar 33 100
+  _cleanning "diffutils-tools"
+  _ProgressBar 40 100
+
 }
 
 package() {

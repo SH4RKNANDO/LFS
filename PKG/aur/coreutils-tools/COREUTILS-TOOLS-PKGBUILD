@@ -17,13 +17,9 @@ backup=()
 options=()
 install=
 changelog=
-source=(
-  'http://192.168.1.202/src/coreutils-8.32.tar.xz'
-)
+source=('http://192.168.1.202/src/coreutils-8.32.tar.xz')
 noextract=()
-md5sums=(
-  '022042695b7d5bcf1a93559a9735e668'
-)
+md5sums=('022042695b7d5bcf1a93559a9735e668')
 
 build() {
   # Prepare package to build

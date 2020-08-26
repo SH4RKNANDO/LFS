@@ -85,7 +85,7 @@ function download {
 dependency
 check_dependency
 create_folder
-download
+#download
 set_user
 set_perm_folder
 echo -e "\nLogin into LFS user to launch the build-stage-1.sh\n"

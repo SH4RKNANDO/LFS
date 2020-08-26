@@ -1,0 +1,66 @@
+# Maintainer: jordan B. <bertieaux.jo@gmail.com>
+pkgname="grep"
+pkgver="3.4"
+pkgrel=1
+pkgdesc="Diffutils Packages"
+arch=(x86_64)
+url=""
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=(
+  'http://192.168.1.202/src/grep-3.4.tar.xz'
+)
+noextract=()
+md5sums=(
+  '111b117d22d6a7d049d6ae7505e9c4d2'
+)
+
+build() {
+  # Prepare package to build
+  _prepare
+
+  # Create the MakeFile
+  _configure
+
+  # Make the package and install
+  _make
+}
+
+package() {
+  echo -e "\nNothing to install\n"
+  cd ..
+}
+
+# /////////////////////////////////// < CUSTOM PACKAGING > ////////////////////////////////////
+
+
+_prepare() {
+  cd "$pkgname-$pkgver"
+}
+
+_configure() {
+  echo -e "\nConfigure the packages\n"
+  ./configure --prefix=/usr   \
+            --host=$LFS_TGT \
+            --bindir=/bin
+}
+
+_make() {
+  figlet "MAKING"
+  echo -e "\nBuild the packages\n"
+  make -j $NB_CORES
+
+  figlet "MAKING INSTALL"
+  echo -e "\nInstall the packages\n"
+  make -j $NB_CORES DESTDIR=$LFS install                                     $LFS/usr/share/man/man8/chroot.8
+}

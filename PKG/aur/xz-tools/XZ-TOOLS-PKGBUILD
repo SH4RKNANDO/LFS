@@ -1,0 +1,72 @@
+# Maintainer: jordan B. <bertieaux.jo@gmail.com>
+pkgname="tar"
+pkgver="1.32"
+pkgrel=1
+pkgdesc="Tar Packages"
+arch=(x86_64)
+url=""
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=(
+  'http://192.168.1.202/src/tar-1.32.tar.xz'
+)
+noextract=()
+md5sums=(
+  '83e38700a80a26e30b2df054e69956e5'
+)
+
+build() {
+  # Prepare package to build
+  _prepare
+
+  # Create the MakeFile
+  _configure
+
+  # Make the package and install
+  _make
+}
+
+package() {
+  echo -e "\nNothing to install\n"
+  cd ..
+}
+
+# /////////////////////////////////// < CUSTOM PACKAGING > ////////////////////////////////////
+
+
+_prepare() {
+  cd "$pkgname-$pkgver"
+}
+
+_configure() {
+  echo -e "\nConfigure the packages\n"
+  ./configure --prefix=/usr                     \
+            --host=$LFS_TGT                   \
+            --build=$(build-aux/config.guess) \
+            --disable-static                  \
+            --docdir=/usr/share/doc/xz-5.2.5
+}
+
+_make() {
+  figlet "MAKING"
+  echo -e "\nBuild the packages\n"
+  make -j $NB_CORES
+
+  figlet "MAKING INSTALL"
+  echo -e "\nInstall the packages\n"
+  make -j $NB_CORES DESTDIR=$LFS install
+
+  mv -v $LFS/usr/bin/{lzma,unlzma,lzcat,xz,unxz,xzcat}  $LFS/bin
+  mv -v $LFS/usr/lib/liblzma.so.*                       $LFS/lib
+  ln -svf ../../lib/$(readlink $LFS/usr/lib/liblzma.so) $LFS/usr/lib/liblzma.so
+}

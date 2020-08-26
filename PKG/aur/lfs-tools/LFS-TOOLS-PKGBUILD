@@ -1,0 +1,83 @@
+# Maintainer: jordan B. <bertieaux.jo@gmail.com>
+pkgname="ToolschainsHeaders"
+pkgver="1.0"
+pkgrel=1
+pkgdesc="Toolschains LFS Packages"
+arch=(x86_64)
+url=""
+license=('GPL')
+groups=()
+depends=('figlet')
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=(
+  'http://192.168.1.202/aur/m4-tools/M4-TOOLS-PKGBUILD'
+)
+noextract=()
+md5sums=(
+  '3782eae6ad18386e20b277fe94337f51'
+)
+
+_BUILD_DIR=$(pwd)
+_start=1
+_end=100
+
+build() {
+
+  # Making the M4 TOOLS
+  _prepare "m4-tools" "M4-TOOLS-PKGBUILD"
+  _ProgressBar 26 100
+  _make "m4-tools"
+  _ProgressBar 33 100
+  _cleanning "m4-tools"
+  _ProgressBar 40 100
+
+}
+
+package() {
+  echo -e "No Install"
+  cd ..
+}
+
+# /////////////////////////////////// < CUSTOM PACKAGING > ////////////////////////////////////
+
+_prepare() {
+  figlet "Prepare"
+  mkdir -pv $1
+  cp -avr $2 $1/PKGBUILD
+}
+
+_make() {
+  figlet "MAKING"
+  cd $1
+  makepkg -f
+}
+
+_cleanning() {
+  figlet "CLEANNIG"
+  cd $_BUILD_DIR/src
+  rm -rfv $1
+}
+
+
+_ProgressBar() {
+  # Process data
+      let _progress=(${1}*100/${2}*100)/100
+      let _done=(${_progress}*4)/10
+      let _left=40-$_done
+  # Build progressbar string lengths
+      _fill=$(printf "%${_done}s")
+      _empty=$(printf "%${_left}s")
+
+  # 1.2 Build progressbar strings and print the ProgressBar line
+  # 1.2.1 Output example:
+  # 1.2.1.1 Progress : [########################################] 100%
+  printf "\rProgress : [${_fill// /#}${_empty// /-}] ${_progress}%%"
+}

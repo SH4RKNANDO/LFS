@@ -1,0 +1,64 @@
+# Maintainer: jordan B. <bertieaux.jo@gmail.com>
+pkgname="m4"
+pkgver="1.4.18"
+pkgrel=1
+pkgdesc="M4 Packages"
+arch=(x86_64)
+url=""
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=('http://192.168.1.202/src/m4-1.4.18.tar.xz')
+noextract=()
+md5sums=('730bb15d96fffe47e148d1e09235af82')
+
+build() {
+  # Prepare package to build
+  _prepare
+
+  # Create the MakeFile
+  _configure
+
+  # Make the package and install
+  _make
+}
+
+package() {
+  echo -e "\nNothing to install\n"
+  cd ..
+}
+
+# /////////////////////////////////// < CUSTOM PACKAGING > ////////////////////////////////////
+
+_prepare() {
+  cd "$pkgname-$pkgver"
+
+  sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c
+  echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h
+}
+
+_configure() {
+  echo -e "\nConfigure the packages\n"
+  ./configure --prefix=/usr   \
+            --host=$LFS_TGT \
+            --build=$(build-aux/config.guess)
+}
+
+_make() {
+  figlet "MAKING"
+  echo -e "\nBuild the packages\n"
+  make -j $NB_CORES
+
+  figlet "MAKING INSTALL"
+  echo -e "\nInstall the packages\n"
+  make -j $NB_CORES DESTDIR=$LFS install
+}

@@ -1,0 +1,66 @@
+# Maintainer: jordan B. <bertieaux.jo@gmail.com>
+pkgname="sed"
+pkgver="4.8"
+pkgrel=1
+pkgdesc="Patch Packages"
+arch=(x86_64)
+url=""
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=(
+  'http://192.168.1.202/src/sed-4.8.tar.xz'
+)
+noextract=()
+md5sums=(
+  '6d906edfdb3202304059233f51f9a71d'
+)
+
+build() {
+  # Prepare package to build
+  _prepare
+
+  # Create the MakeFile
+  _configure
+
+  # Make the package and install
+  _make
+}
+
+package() {
+  echo -e "\nNothing to install\n"
+  cd ..
+}
+
+# /////////////////////////////////// < CUSTOM PACKAGING > ////////////////////////////////////
+
+
+_prepare() {
+  cd "$pkgname-$pkgver"
+}
+
+_configure() {
+  echo -e "\nConfigure the packages\n"
+  ./configure --prefix=/usr   \
+            --host=$LFS_TGT \
+            --bindir=/bin
+}
+
+_make() {
+  figlet "MAKING"
+  echo -e "\nBuild the packages\n"
+  make -j $NB_CORES
+
+  figlet "MAKING INSTALL"
+  echo -e "\nInstall the packages\n"
+  make -j $NB_CORES DESTDIR=$LFS install
+}

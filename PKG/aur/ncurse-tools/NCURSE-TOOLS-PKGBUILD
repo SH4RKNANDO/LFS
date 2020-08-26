@@ -1,0 +1,86 @@
+# Maintainer: jordan B. <bertieaux.jo@gmail.com>
+pkgname="ncurses"
+pkgver="6.2"
+pkgrel=1
+pkgdesc="NCURSE Packages"
+arch=(x86_64)
+url=""
+license=('GPL')
+groups=()
+depends=()
+makedepends=()
+optdepends=()
+provides=()
+conflicts=()
+replaces=()
+backup=()
+options=()
+install=
+changelog=
+source=(
+  'http://192.168.1.202/src/ncurses-6.2.tar.gz'
+)
+noextract=()
+md5sums=(
+  'e812da327b1c2214ac1aed440ea3ae8d'
+)
+
+build() {
+  # Prepare package to build
+  _prepare
+
+  # Create the MakeFile
+  _configure
+
+  # Make the package and install
+  _make
+}
+
+package() {
+  echo -e "\nNothing to install\n"
+  cd ..
+}
+
+# /////////////////////////////////// < CUSTOM PACKAGING > ////////////////////////////////////
+
+
+_prepare() {
+  cd "$pkgname-$pkgver"
+  sed -i s/mawk// configure
+
+  mkdir build
+  pushd build
+    ../configure
+    make -C include
+    make -C progs tic
+  popd
+
+}
+
+_configure() {
+  echo -e "\nConfigure the packages\n"
+  ./configure --prefix=/usr                \
+              --host=$LFS_TGT              \
+              --build=$(./config.guess)    \
+              --mandir=/usr/share/man      \
+              --with-manpage-format=normal \
+              --with-shared                \
+              --without-debug              \
+              --without-ada                \
+              --without-normal             \
+              --enable-widec
+}
+
+_make() {
+  figlet "MAKING"
+  echo -e "\nBuild the packages\n"
+  make -j $NB_CORES
+
+  figlet "MAKING INSTALL"
+  echo -e "\nInstall the packages\n"
+  make -j $NB_CORES DESTDIR=$LFS TIC_PATH=$(pwd)/build/progs/tic install
+
+  echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so
+  mv -v $LFS/usr/lib/libncursesw.so.6* $LFS/lib
+  ln -sfv ../../lib/$(readlink $LFS/usr/lib/libncursesw.so) $LFS/usr/lib/libncursesw.so
+  }

@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 LFS_PASSWORD=lfs
 LFS=/mnt/lfs
 ROOT_DISK=/dev/sda2
@@ -10,13 +8,22 @@ export LFS=/mnt/lfs
 
 # ///////////////////////////////////////// < Section User >///////////////////////////////////////////////////
 
-function create_partition {
+function dependency {
+  echo -e "\nSet permissions to scripts\n"
+  sudo chmod -Rv 755 scripts/*
+
   echo -e "\nMount the Root Partition\n"
   sudo rm -rfv $LFS/*
   sudo umount -Rv $LFS
   yes 'y' | sudo mkfs.ext4 $ROOT_DISK
   sudo mount -v $ROOT_DISK $LFS
 }
+
+function check_dependency {
+  echo -e "\nShow correct dependency\n"
+  bash tools/version-check.sh
+}
+
 
 # ///////////////////////////////////////// < Section User >///////////////////////////////////////////////////
 
@@ -27,7 +34,7 @@ function set_user {
   yes "$LFS_PASSWORD" | passwd lfs
 
   # Set lfs-env
-  sudo -u lfs lfs-user.sh
+  sudo -u lfs scripts/lfs-user.sh
 }
 
 
@@ -52,11 +59,12 @@ function set_perm_folder {
   esac
 }
 
-
 # ///////////////////////////////////////// < Section MAIN >///////////////////////////////////////////////////
 
-create_partition
+dependency
+check_dependency
 create_folder
 set_user
 set_perm_folder
+echo -e "\nLogin into LFS user to launch the build-stage-1.sh\n"
 echo -e "\nuse su - lfs to login and bash build-stage-1.sh for launch it\n"

@@ -1,4 +1,4 @@
-export LFS=/mnt/SD
+export LFS=/mnt/lfs
 
 mount -v --bind /dev $LFS/dev
 mount -v --bind /run $LFS/run

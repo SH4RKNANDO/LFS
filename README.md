@@ -13,7 +13,7 @@ use the script 'requirement.sh' for Preparing the host system.
 Sources : http://www.linuxfromscratch.org/lfs/view/systemd/index.html
 
 
-## III. Building the LFS Cross Toolchain and Temporary Tools
+## III. Building toolchain and temporary tools
 
 ### Build the lfs toolchains
 

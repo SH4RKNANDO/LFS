@@ -2,13 +2,13 @@
 
 ## Requirement (II. Preparing for the Build)
 
-use the script 'requirement.sh' for Preparing the Host System.
+use the script 'requirement.sh' for Preparing the host system.
 
-  a) Select the partition and format (ext4)
-  b) Mount the partition in (/mnt/lfs)
-  c) Create lfs user and set the environement
-  d) Create minimal LFS filesystem
-  e) Set the permissions for the lfs user
+  - Select the partition and format (ext4)
+  - Mount the partition in (/mnt/lfs)
+  - Create lfs user and set the environement
+  - Create minimal LFS filesystem
+  - Set the permissions for the lfs user
 
 Sources : http://www.linuxfromscratch.org/lfs/view/systemd/index.html
 

@@ -73,12 +73,12 @@ function set_perm_folder {
   sudo chmod -v 755 $LFS/sources/build-stage-1.sh
 }
 
-function download {
-  echo -e "\nDownload LFS Packages...\n"
-  wget --input-file=tools/wget-list --continue --directory-prefix=$LFS/sources
-  echo -e "\nCopy the build stage 1\n"
-  cp -avr build-stage-1.sh $LFS/sources
-}
+# function download {
+#   echo -e "\nDownload LFS Packages...\n"
+#   wget --input-file=tools/wget-list --continue --directory-prefix=$LFS/sources
+#   echo -e "\nCopy the build stage 1\n"
+#   cp -avr build-stage-1.sh $LFS/sources
+# }
 
 # ///////////////////////////////////////// < Section MAIN >///////////////////////////////////////////////////
 

@@ -1,6 +1,8 @@
 # Linux From Scratch (AUR)
 
-## II. Preparing for the Build
+## requirement
+
+### II. Preparing for the Build
 
 use the script 'requirement.sh' for Preparing the host system.
 
@@ -13,9 +15,11 @@ use the script 'requirement.sh' for Preparing the host system.
 Sources : http://www.linuxfromscratch.org/lfs/view/systemd/index.html
 
 
-## III. Building toolchain and temporary tools
+## Build Stage 1
 
-### Build the lfs toolchains
+### III. Building toolchain and temporary tools
+
+#### Build the lfs toolchains
 
 use the pkgbuild (cross-toolschains):
 
@@ -25,7 +29,7 @@ use the pkgbuild (cross-toolschains):
     - Linux Headers
     - libstc++
 
-### Cross Compiling Temporary Tools
+#### Cross Compiling Temporary Tools
 
   - Linux lfs-tools (PKGBUILD)
     - M4-1.4.18

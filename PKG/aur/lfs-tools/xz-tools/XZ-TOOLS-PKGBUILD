@@ -2,7 +2,7 @@
 pkgname="xz"
 pkgver="5.2.5"
 pkgrel=1
-pkgdesc="Tar Packages"
+pkgdesc="XZ Packages"
 arch=(x86_64)
 url=""
 license=('GPL')

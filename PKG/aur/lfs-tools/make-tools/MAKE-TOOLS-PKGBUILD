@@ -2,7 +2,7 @@
 pkgname="make"
 pkgver="4.3"
 pkgrel=1
-pkgdesc="Gzip Packages"
+pkgdesc="Make Packages"
 arch=(x86_64)
 url=""
 license=('GPL')

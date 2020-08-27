@@ -22,16 +22,16 @@ source=(
   'http://192.168.1.202/aur/lfs-toolchains/gcc-toolchains/GCC-TOOLCHAINS-PKGBUILD'
   'http://192.168.1.202/aur/lfs-toolchains/glibc-toolchains/GLIBC-TOOLCHAINS-PKGBUILD'
   'http://192.168.1.202/aur/lfs-toolchains/libstdc-toolchains/LIBSTDC-TOOLCHAINS-PKGBUILD'
-  'http://192.168.1.202/aur/lfs-toolchainss/linux-header-toolchains/LINUX-HEADER-TOOLCHAINS-PKGBUILD'
+  'http://192.168.1.202/aur/lfs-toolchains/linux-header-toolchains/LINUX-HEADER-TOOLCHAINS-PKGBUILD'
 )
 noextract=()
 md5sums=(
-  '3782eae6ad18386e20b277fe94337f51'
-  '4bb7d0a9a2ce93495a082718b102f106'
-  'dfee0692e975dfecdc199a9042a55d27'
-  '6460e0951e47a1c8b0f501b541d4f02e'
-  '4a07a9fd7ee6dee4da86448efd37dc97'
-) #autofill using updpkgsums
+  'bc73533cbba612f783dc45a3714fd044'
+  '334d933c49c00495f43c75386c2cfb9c'
+  '51056351e2e03774599ff5a53eafaad6'
+  'c99a6d860a5d9292c20e67162ea91e1f'
+  '5ddb7da167d10ca541d65797297d5fb5'
+)
 
 _BUILD_DIR=$(pwd)
 _start=1

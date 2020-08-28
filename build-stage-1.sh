@@ -75,8 +75,8 @@ function build_sequence {
   export -f build_tools
 
   # Running Building from lfs user
-  su lfs -c "bash -c build_toolchains"
-  su lfs -c "bash -c build_tools"
+  yes "$LFS_PASSWORD" | su lfs -c "bash -c build_toolchains"
+  yes "$LFS_PASSWORD" | su lfs -c "bash -c build_tools"
 
 }
 

@@ -46,30 +46,13 @@ set_vkfs() {
     x86_64) echo "$LFS_PASSWORD" | sudo -S chown -Rv root:root $LFS/lib64 ;;
   esac
 
-  mkdir -pv $LFS/{dev,proc,sys,run}
-  mknod -m 600 $LFS/dev/console c 5 1
-  mknod -m 666 $LFS/dev/null c 1 3
-
-  mkdir -pv $LFS/{boot,home,mnt,opt,srv}
-  mkdir -pv $LFS/etc/{opt,sysconfig}
-  mkdir -pv $LFS/lib/firmware
-  mkdir -pv $LFS/media/{floppy,cdrom}
-  mkdir -pv $LFS/usr/{,local/}{bin,include,lib,sbin,src}
-  mkdir -pv $LFS/usr/{,local/}share/{color,dict,doc,info,locale,man}
-  mkdir -pv $LFS/usr/{,local/}share/{misc,terminfo,zoneinfo}
-  mkdir -pv $LFS/usr/{,local/}share/man/man{1..8}
-  mkdir -pv $LFS/var/{cache,local,log,mail,opt,spool}
-  mkdir -pv $LFS/var/lib/{color,misc,locate}
-
-  ln -sfv $LFS/run $LFS/var/run
-  ln -sfv $LFS/run/lock $LFS/var/lock
-
-  install -dv -m 0750 $LFS/root
-  install -dv -m 1777 $LFS/tmp $LFS/var/tmp
+  echo "$LFS_PASSWORD" | sudo -S mkdir -pv $LFS/{dev,proc,sys,run}
+  echo "$LFS_PASSWORD" | sudo -S mknod -m 600 $LFS/dev/console c 5 1
+  echo "$LFS_PASSWORD" | sudo -S mknod -m 666 $LFS/dev/null c 1 3
 }
 
 function copy_script {
-  cp -avr SRC_DIR/scripts/chroot.sh $LFS/chroot.sh
+  echo "$LFS_PASSWORD" | sudo -S cp -avr SRC_DIR/scripts/chroot.sh $LFS/chroot.sh
   chmod 755 $LFS/chroot.sh
 }
 
@@ -80,6 +63,8 @@ function build_sequence {
   #build_toolchains
   #build_tools
 
+  set_vkfs
+  copy_script
 }
 
 build_sequence

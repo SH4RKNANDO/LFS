@@ -21,7 +21,7 @@ edit the env for the lfs user :
   - LFS_PASSWORD : set the password of your lfs user (default: lfs)
   - LFS : folder of the root file system (default : /mnt/lfs)
   - ROOT_DISK : set the partition that containt lfs
-  - NB_CORES=4
+  - NB_CORES : set the numbers of cores that will be used by (make -j $NB_CORES) 
 
 Warning:
 

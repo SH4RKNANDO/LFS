@@ -11,6 +11,7 @@ LFS=/mnt/lfs
 LC_ALL=POSIX
 LFS_TGT=$(uname -m)-lfs-linux-gnu
 NB_CORES=4
+LFS_PASSWORD=$LFS_PASSWORD
 PATH=/usr/bin
 if [ ! -L /bin ]; then PATH=/bin:$PATH; fi
 PATH=$LFS/tools/bin:$PATH

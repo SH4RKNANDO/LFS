@@ -50,6 +50,12 @@ use the pkgbuild (cross-toolschains):
     - Binutils-2.35 - Pass 2
     - GCC-10.2.0 - Pass 2
 
+#### create files and scripts
+
+  - chroot script => TODO
+  - Resolve Missing Permissions => TODO
+  - Merge script to build-stage-1.sh => TODO
+  - Cleanning => TODO
 
 ## Documentation
 

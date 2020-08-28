@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 
-LFS_PASSWORD=lfs
-LFS=/mnt/lfs
-ROOT_DISK=/dev/sda2
+# ///////////////////////////////////////// < Section environement >///////////////////////////////////////////////////
 
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
+export LFS_PASSWORD=lfs
 export LFS=/mnt/lfs
+export ROOT_DISK=/dev/sda2
+export NB_CORES=4
 
 # ///////////////////////////////////////// < Section User >///////////////////////////////////////////////////
 

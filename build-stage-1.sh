@@ -26,7 +26,7 @@ build_toolchains() {
 build_tools() {
     mkdir -pv $LFS/sources/Building
     cd $LFS/sources/Building
-    wget http://192.168.1.202/aur/lfs-tools/lfs-tools/cross-toolchains/LFS-TOOLS-PKGBUILD
+    wget http://192.168.1.202/aur/lfs-tools/lfs-tools/LFS-TOOLS-PKGBUILD
     mv LFS-TOOLS-PKGBUILD PKGBUILD
     makepkg
     rm -rfv $LFS/sources/Building/*
@@ -77,7 +77,6 @@ function build_sequence {
   # Running Building from lfs user
   su lfs -c "bash -c build_toolchains"
   su lfs -c "bash -c build_tools"
-
 
 }
 

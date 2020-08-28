@@ -15,7 +15,6 @@ NB_CORES=4
 
 export -f LFS=/mnt/lfs
 export -f LFS_PASSWORD=lfs
-export -f LFS=/mnt/lfs
 export -f ROOT_DISK=/dev/sda2
 export -f NB_CORES=4
 
@@ -43,15 +42,15 @@ function check_dependency {
 function set_user {
   echo -e "\nCreate User LFS...\n"
   groupadd lfs
-  useradd -s /bin/bash -g lfs -d /mnt/lfs -m -k /dev/null lfs
+  useradd -s /bin/bash -g lfs -d /home/lfs -m -k /dev/null lfs
   yes "$LFS_PASSWORD" | passwd lfs
 
   # Set lfs bash_profle
-  su lfs -c "cat > /mnt/lfs/.bash_profile  << 'EOF'
-exec env -i HOME=$LFS TERM=$TERM PS1='\u:\w\$ ' /bin/bash
+  su lfs -c "cat > /home/lfs/.bash_profile  << 'EOF'
+exec env -i HOME=/home/lfs TERM=$TERM PS1='\u:\w\$ ' /bin/bash
 EOF"
 
-  su lfs -c "cat > /mnt/lfs/.bashrc  << 'EOF'
+  su lfs -c "cat > /home/lfs/.bashrc  << 'EOF'
 set +h
 umask 022
 LFS=$LFS

@@ -53,7 +53,7 @@ function set_user {
 exec env -i HOME=/home/lfs TERM=$TERM PS1='\u:\w\$ ' /bin/bash
 EOF"
 
-  su lfs -c "cat > /home/lfs/.bash_profile  << 'EOF'
+  su lfs -c "cat > /home/lfs/.bashrc  << 'EOF'
 set +h
 umask 022
 LFS=$LFS

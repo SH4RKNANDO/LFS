@@ -51,20 +51,13 @@ set_vkfs() {
   echo "$LFS_PASSWORD" | sudo -S mknod -m 666 $LFS/dev/null c 1 3
 }
 
-function copy_script {
-  echo "$LFS_PASSWORD" | sudo -S cp -avr $SRC_DIR/tools/chroot.sh $LFS/chroot.sh
-  chmod 755 $LFS/chroot.sh
-}
-
 # ///////////////////////////////////////// < Section MAIN >///////////////////////////////////////////////////
 
 function build_sequence {
   # Run building
   #build_toolchains
   #build_tools
-
   set_vkfs
-  copy_script
 }
 
 build_sequence

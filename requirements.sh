@@ -82,6 +82,8 @@ function create_folder {
   echo -e "\nCopy Files...\n"
   cp -avr $SRC_DIR/build-stage-1.sh $LFS/sources/build-stage-1.sh
   cp -avr $SRC_DIR/build-stage-2.sh $LFS/sources/build-stage-2.sh
+  cp -avr $SRC_DIR/tools/chroot.sh $LFS/chroot.sh
+  chmod 755 $LFS/chroot.sh
 }
 
 function set_perm_folder {

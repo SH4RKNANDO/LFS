@@ -7,10 +7,12 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-export LFS_PASSWORD=lfs
+LFS_PASSWORD=lfs
+LFS=/mnt/lfs
+ROOT_DISK=/dev/sda2
+NB_CORES=4
+
 export LFS=/mnt/lfs
-export ROOT_DISK=/dev/sda2
-export NB_CORES=4
 
 # ///////////////////////////////////////// < Section User >///////////////////////////////////////////////////
 

@@ -7,10 +7,10 @@ EOF
 cat > ~/.bashrc << "EOF"
 set +h
 umask 022
-LFS=/mnt/lfs
+LFS=$LFS
 LC_ALL=POSIX
 LFS_TGT=$(uname -m)-lfs-linux-gnu
-NB_CORES=4
+NB_CORES=$NB_CORES
 LFS_PASSWORD=$LFS_PASSWORD
 PATH=/usr/bin
 if [ ! -L /bin ]; then PATH=/bin:$PATH; fi

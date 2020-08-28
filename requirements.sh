@@ -7,6 +7,7 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+SRC_DIR=$(pwd)
 LFS_PASSWORD=lfs
 LFS=/mnt/lfs
 ROOT_DISK=/dev/sda2
@@ -50,7 +51,7 @@ function set_user {
 
   # Set lfs bash_profle
   su lfs -c "cat > /home/lfs/.bash_profile  << 'EOF'
-exec env -i HOME=/home/lfs TERM=$TERM PS1='\u:\w\$ ' /bin/bash
+exec env -i HOME=$LFS TERM=$TERM PS1='\u:\w\$ ' /bin/bash
 EOF"
 
   su lfs -c "cat > /home/lfs/.bashrc  << 'EOF'
@@ -80,8 +81,11 @@ function create_folder {
   case $(uname -m) in
     x86_64) mkdir -pv $LFS/lib64 ;;
   esac
-}
 
+  echo -e "\nCopy Files...\n"
+  cp -avr $SRC_DIR/build-stage-1.sh $LFS/sources/build-stage-1.sh
+  cp -avr $SRC_DIR/build-stage-2.sh $LFS/sources/build-stage-2.sh
+}
 
 function set_perm_folder {
   sudo chmod -Rv a+wt $LFS/sources

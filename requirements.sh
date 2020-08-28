@@ -23,6 +23,7 @@ function dependency {
   sudo umount -Rv $LFS
   yes 'y' | sudo mkfs.ext4 $ROOT_DISK
   sudo mount -v $ROOT_DISK $LFS
+  sudo rm -rfv $LFS/lost+found
 }
 
 function check_dependency {

@@ -38,7 +38,6 @@ _start=1
 _end=100
 
 build() {
-
   # Making the Binutils PASS-1
   _prepare "binutils" "BINUTILS-TOOLCHAINS-PKGBUILD"
   _ProgressBar 6 100

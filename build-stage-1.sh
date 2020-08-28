@@ -52,7 +52,7 @@ set_vkfs() {
 }
 
 function copy_script {
-  echo "$LFS_PASSWORD" | sudo -S cp -avr SRC_DIR/scripts/chroot.sh $LFS/chroot.sh
+  echo "$LFS_PASSWORD" | sudo -S cp -avr $SRC_DIR/tools/chroot.sh $LFS/chroot.sh
   chmod 755 $LFS/chroot.sh
 }
 

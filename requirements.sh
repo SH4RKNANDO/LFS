@@ -41,7 +41,24 @@ function set_user {
   yes "$LFS_PASSWORD" | passwd lfs
 
   # Set lfs-env
-  sudo -u lfs scripts/lfs-user.sh
+  cat > /home/lfs/.bash_profile << "EOF"
+exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash
+EOF
+
+  cat > /home/lfs/.bash_profile << "EOF"
+set +h
+umask 022
+LFS=$LFS
+LC_ALL=POSIX
+LFS_TGT=$(uname -m)-lfs-linux-gnu
+NB_CORES=$NB_CORES
+LFS_PASSWORD=$LFS_PASSWORD
+PATH=/usr/bin
+if [ ! -L /bin ]; then PATH=/bin:$PATH; fi
+PATH=$LFS/tools/bin:$PATH
+export LFS LC_ALL LFS_TGT PATH NB_CORES
+EOF
+
 }
 
 

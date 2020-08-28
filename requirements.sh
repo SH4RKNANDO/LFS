@@ -13,13 +13,11 @@ LFS=/mnt/lfs
 ROOT_DISK=/dev/sda2
 NB_CORES=4
 
-
 export -f LFS=/mnt/lfs
 export -f LFS_PASSWORD=lfs
 export -f LFS=/mnt/lfs
 export -f ROOT_DISK=/dev/sda2
 export -f NB_CORES=4
-
 
 # ///////////////////////////////////////// < Section User >///////////////////////////////////////////////////
 
@@ -40,7 +38,6 @@ function check_dependency {
   bash tools/version-check.sh
 }
 
-
 # ///////////////////////////////////////// < Section User >///////////////////////////////////////////////////
 
 function set_user {
@@ -50,11 +47,11 @@ function set_user {
   yes "$LFS_PASSWORD" | passwd lfs
 
   # Set lfs bash_profle
-  su lfs -c "cat > /home/lfs/.bash_profile  << 'EOF'
+  su lfs -c "cat > /mnt/lfs/.bash_profile  << 'EOF'
 exec env -i HOME=$LFS TERM=$TERM PS1='\u:\w\$ ' /bin/bash
 EOF"
 
-  su lfs -c "cat > /home/lfs/.bashrc  << 'EOF'
+  su lfs -c "cat > /mnt/lfs/.bashrc  << 'EOF'
 set +h
 umask 022
 LFS=$LFS
@@ -68,9 +65,7 @@ PATH=$LFS/tools/bin:$PATH
 export LFS LC_ALL LFS_TGT PATH NB_CORES LFS_PASSWORD
 EOF
 "
-
 }
-
 
 # ///////////////////////////////////////// < Section Folders >///////////////////////////////////////////////////
 

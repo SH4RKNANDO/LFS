@@ -55,9 +55,10 @@ set_vkfs() {
 
 function build_sequence {
   # Run building
-  #build_toolchains
-  #build_tools
+  build_toolchains
+  build_tools
   set_vkfs
 }
 
 build_sequence
+echo -e "\nChroot into the lfs system use $LFS/chroot.sh \n"

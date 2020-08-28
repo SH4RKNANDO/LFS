@@ -14,6 +14,18 @@ use the script 'requirement.sh' for Preparing the host system.
 
 Sources : http://www.linuxfromscratch.org/lfs/view/systemd/index.html
 
+### Configure the requirement.sh
+
+edit the env for the lfs user :
+
+  - LFS_PASSWORD : set the password of your lfs user (default: lfs)
+  - LFS : folder of the root file system (default : /mnt/lfs)
+  - ROOT_DISK : set the partition that containt lfs
+  - NB_CORES=4
+
+Warning:
+
+the ROOT_DISK will be swapped and clean by mkfs.ext4 ! There is no Reverse option to recover from changes made through use of this scripts.
 
 ## Build Stage 1
 

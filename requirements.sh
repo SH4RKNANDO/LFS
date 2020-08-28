@@ -42,7 +42,7 @@ function check_dependency {
 function set_user {
   echo -e "\nCreate User LFS...\n"
   groupadd lfs
-  useradd -s /bin/bash -g lfs -d /home/lfs -m -k /dev/null lfs
+  useradd -s /bin/bash -g lfs -d /home/lfs -m lfs
   yes "$LFS_PASSWORD" | passwd lfs
 
   # Set lfs bash_profle

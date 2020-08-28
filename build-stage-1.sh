@@ -40,10 +40,10 @@ function build_tools {
 }
 
 set_vkfs() {
-  chown -Rv root:root $LFS/{usr,lib,var,etc,bin,sbin,tools}
+  echo "$LFS_PASSWORD" | sudo -S chown -Rv root:root $LFS/{usr,lib,var,etc,bin,sbin,tools}
 
   case $(uname -m) in
-    x86_64) chown -R root:root $LFS/lib64 ;;
+    x86_64) echo "$LFS_PASSWORD" | sudo -S chown -Rv root:root $LFS/lib64 ;;
   esac
 
   mkdir -pv $LFS/{dev,proc,sys,run}
@@ -77,8 +77,8 @@ function copy_script {
 
 function build_sequence {
   # Run building
-  build_toolchains
-  build_tools
+  #build_toolchains
+  #build_tools
 
 }
 

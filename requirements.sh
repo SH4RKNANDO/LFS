@@ -58,7 +58,7 @@ LFS_PASSWORD=$LFS_PASSWORD
 PATH=/usr/bin
 if [ ! -L /bin ]; then PATH=/bin:$PATH; fi
 PATH=$LFS/tools/bin:$PATH
-export LFS LC_ALL LFS_TGT PATH NB_CORES
+export LFS LC_ALL LFS_TGT PATH NB_CORES LFS_PASSWORD
 EOF
 
 }

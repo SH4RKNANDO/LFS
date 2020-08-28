@@ -23,7 +23,7 @@ export -f NB_CORES=4
 
 function dependency {
   echo -e "\nSet permissions to scripts\n"
-  sudo chmod -Rv 755 scripts/*
+  sudo chmod -Rv 755 tools/*
 
   echo -e "\nMount the Root Partition\n"
   sudo rm -rfv $LFS/*

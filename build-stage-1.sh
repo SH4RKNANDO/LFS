@@ -1,8 +1,15 @@
 #!/usr/bin/env bash
 
+USER=$(whoami)
+if [ "$USER" != "lfs" ]
+  then echo "Please run as lfs"
+  exit
+fi
+
 NB_CORES=4
 SRC_DIR=$(pwd)
 LFS_PASSWORD="lfs"
+export -f LFS=/mnt/lfs
 
 set -e
 
@@ -14,7 +21,7 @@ trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
 # ///////////////////////////////////////// < Section build >///////////////////////////////////////////////////
 
-build_toolchains() {
+function build_toolchains {
     mkdir -pv $LFS/sources/Building
     cd $LFS/sources/Building
     wget http://192.168.1.202/aur/lfs-toolchains/cross-toolchains/LFS-TOOLCHAINS-PKGBUILD
@@ -23,7 +30,7 @@ build_toolchains() {
     rm -rfv $LFS/sources/Building/*
 }
 
-build_tools() {
+function build_tools {
     mkdir -pv $LFS/sources/Building
     cd $LFS/sources/Building
     wget http://192.168.1.202/aur/lfs-tools/lfs-tools/LFS-TOOLS-PKGBUILD
@@ -32,7 +39,7 @@ build_tools() {
     rm -rfv $LFS/sources/Building/*
 }
 
-function set_vkfs {
+set_vkfs() {
   chown -Rv root:root $LFS/{usr,lib,var,etc,bin,sbin,tools}
 
   case $(uname -m) in
@@ -61,7 +68,6 @@ function set_vkfs {
   install -dv -m 1777 $LFS/tmp $LFS/var/tmp
 }
 
-
 function copy_script {
   cp -avr SRC_DIR/scripts/chroot.sh $LFS/chroot.sh
   chmod 755 $LFS/chroot.sh
@@ -70,13 +76,9 @@ function copy_script {
 # ///////////////////////////////////////// < Section MAIN >///////////////////////////////////////////////////
 
 function build_sequence {
-  # export the function into env
-  export -f build_toolchains
-  export -f build_tools
-
-  # Running Building from lfs user
-  yes "$LFS_PASSWORD" | su lfs -c "bash -c build_toolchains"
-  yes "$LFS_PASSWORD" | su lfs -c "bash -c build_tools"
+  # Run building
+  build_toolchains
+  build_tools
 
 }
 

@@ -1,8 +1,8 @@
 # Maintainer: jordan B. <bertieaux.jo@gmail.com>
-pkgname="ToolschainsHeaders"
+pkgname="lfs-tools"
 pkgver="1.0"
 pkgrel=1
-pkgdesc="Toolschains LFS Packages"
+pkgdesc="Tools LFS Packages"
 arch=(x86_64)
 url=""
 license=('GPL')

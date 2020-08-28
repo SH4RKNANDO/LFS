@@ -64,6 +64,9 @@ PATH=$LFS/tools/bin:$PATH
 export LFS LC_ALL LFS_TGT PATH NB_CORES LFS_PASSWORD
 EOF
 "
+
+  # Set the sudo permissions
+  echo "lfs ALL=(ALL) ALL" >> /etc/sudoers
 }
 
 # ///////////////////////////////////////// < Section Folders >///////////////////////////////////////////////////

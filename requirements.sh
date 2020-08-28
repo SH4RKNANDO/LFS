@@ -13,10 +13,10 @@ LFS=/mnt/lfs
 ROOT_DISK=/dev/sda2
 NB_CORES=4
 
-export -f LFS=/mnt/lfs
-export -f LFS_PASSWORD=lfs
-export -f ROOT_DISK=/dev/sda2
-export -f NB_CORES=4
+export LFS=/mnt/lfs
+export LFS_PASSWORD=lfs
+export ROOT_DISK=/dev/sda2
+export NB_CORES=4
 
 # ///////////////////////////////////////// < Section User >///////////////////////////////////////////////////
 

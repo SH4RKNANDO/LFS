@@ -4,7 +4,7 @@
 
 ### II. Preparing for the Build
 
-use the script 'requirement.sh' for Preparing the host system.
+use the script 'requirement.sh' for Preparing the host system :
 
   - Select the partition and format (ext4)
   - Mount the partition in (/mnt/lfs)
@@ -21,7 +21,7 @@ edit the env for the lfs user :
   - LFS_PASSWORD : set the password of your lfs user (default: lfs)
   - LFS : folder of the root file system (default : /mnt/lfs)
   - ROOT_DISK : set the partition that containt lfs
-  - NB_CORES : set the numbers of cores that will be used by (make -j $NB_CORES) 
+  - NB_CORES : set the numbers of cores that will be used by (make -j $NB_CORES)
 
 Warning:
 
